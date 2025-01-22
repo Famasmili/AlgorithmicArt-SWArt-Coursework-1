@@ -30,4 +30,4 @@ minute_hand = turtle.Turtle()
 minute_hand.speed(0)
 minute_hand.color("white")
 minute_hand.shape("triangle")
-
+turtle.done()
