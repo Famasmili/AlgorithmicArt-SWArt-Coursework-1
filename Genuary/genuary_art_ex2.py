@@ -73,74 +73,66 @@ def color_shuffle():
     shuffled_copy = colors_list.copy()
     for i in range(num_layers):
         colors_list[i] = shuffled_copy[i]
-        
+
     turtle.update()
 
 def animate():
     global rotate, frame_count, t, t1, colors_list, rotation_direction
-    frame_count += 1
     amplitude = 0.5 # Color change amplitude
     frequency = 0.02 # Color change frequency
     
-    # if not turtle.Screen()._root or not t.screen or not t1.screen:
-    #     print("Turtle graphic window may have been closed.")
-    #     return
-    if not hasattr(turtle.Screen(), "_root") or turtle.Screen()._root is None:
-        return 
-
-    try:
-        t.clear()
-        t1.clear()
-    except turtle.TurtleGraphicsError:
-        print("Turtle graphic window may have been closed.")
-        return
-    
-    if rotate:
-        t.setheading(t.heading() + rotation_speed * rotation_direction)
-        t1.setheading(t1.heading() - rotation_speed * rotation_direction)
-    
-    if len(colors_list) < num_layers:
+    # Main loop
+    while hasattr(turtle.Screen(), "_root") and turtle.Screen()._root is not None:
+        frame_count += 1
+        
+        try:
+            if t.screen._root is None or t1.screen._root is None:
+                break
+            t.clear()
+            t1.clear()
+        except turtle.TurtleGraphicsError:
+            print("Turtle graphic window may have been closed.")
+            break
+        
+        if rotate:
+            t.setheading(t.heading() + rotation_speed * rotation_direction)
+            t1.setheading(t1.heading() - rotation_speed * rotation_direction)
+        
         for i in range(num_layers):
-            hue = (math.sin((frame_count + i) * frequency) * amplitude) + 0.5
-            colors_list.append(colorsys.hsv_to_rgb(hue, 1.0, 1.0))
-    else:
-        for i in range(num_layers):
-            hue = (math.sin((frame_count + i) * frequency) * amplitude) + 0.5
-            colors_list[i] = colorsys.hsv_to_rgb(hue, 1.0, 1.0)
-    for i in range(num_layers):
-        color = colors_list[i]
-        # color = (color[0], color[1], color[2])
-        t.color(color)
-        t1.color(color)
+            if len(colors_list) < num_layers:
+                hue = (math.sin((frame_count + i) * frequency) * amplitude) + 0.5
+                colors_list.append(colorsys.hsv_to_rgb(hue, 1.0, 1.0))
+            else:
+                hue_shift = math.sin((frame_count + i) * frequency) * amplitude + 0.5
+                new_color = colorsys.hsv_to_rgb(hue_shift, 1.0, 1.0)
+                blend_factor = 0.1
+                colors_list[i] = (
+                    colors_list[i][0] * (1 - blend_factor) + new_color[0] * blend_factor,
+                    colors_list[i][1] * (1 - blend_factor) + new_color[1] * blend_factor,
+                    colors_list[i][2] * (1 - blend_factor) + new_color[2] * blend_factor,
+                )
+            color = colors_list[i]
+            t.color(color)
+            t1.color(color)
 
-        side_length = length - 3 * i
-        # rotation_direction = rotation_speed if i % 2 == 0 else -rotation_speed
-        # Draw on both sides of the origin
-        if sides == 1:
-            # t.setheading(t.heading() + rotation_direction)
-            t.penup()
-            t.goto(0,0)
-            t.pendown()
-            t.circle(side_length)
-            # t1.setheading(t1.heading() - rotation_direction)
-            t1.penup()
-            t1.goto(0,0)
-            t1.pendown()
-            t1.circle(-side_length) 
-        else:
-            polygon = Polygon(t, sides, side_length, color)
-            polygon1 = Polygon(t1, sides, side_length, color)
-            # Draw on both sides of the origin along the diagonal from top left to bottom right
-            draw_layer(t, polygon, i, rotation_direction)
-            draw_layer(t1, polygon1, num_layers - i - 1, -rotation_direction)
-            # Draw on both sides of the origin along the diagonal from top right to bottom left
-            # draw_layer(t, polygon, width / 4, height - 10 * i, rotation_direction)
-            # draw_layer(t1, polygon1, -width / 4 + 10 * i, -300 + 10 * i, -rotation_direction)
-            # draw_layer(t, polygon, width / 4, 300 - 10 * i, rotation_direction)
-            # draw_layer(t1, polygon1, -width / 4 + 10 * i, -height + 10 * i, -rotation_direction)
-
-    turtle.update()
-    turtle.Screen().ontimer(animate, 20) # call this function again after 20ms
+            side_length = length - 3 * i
+            if sides == 1:
+                t.penup() # Pull the pen up, no drawing done when moving the turtle around the canvas
+                t.goto(0,0)
+                t.pendown() # Put the pen down
+                t.circle(side_length)
+                t1.penup()
+                t1.goto(0,0)
+                t1.pendown()
+                t1.circle(-side_length) 
+            else:
+                polygon = Polygon(t, sides, side_length, color)
+                polygon1 = Polygon(t1, sides, side_length, color)
+                draw_layer(t, polygon, i, rotation_direction)
+                draw_layer(t1, polygon1, num_layers - i - 1, -rotation_direction)
+        
+        turtle.update()
+        turtle.time.sleep(0.02)  # Sleep for 20ms
 
 def main():
     global t, t1

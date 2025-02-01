@@ -104,7 +104,7 @@ turtle.title("Spiralling Patterns")
 
 t.penup()
 t.color("white")
-t.goto(-400, 400) # Upper left corner
+t.goto(-200, -200) # Upper left corner
 t.pendown()
 turtle.write("Color: " + turtle_color + " Angle: " + str(angles), font=("Arial", 12, "normal"), align="center")
 
