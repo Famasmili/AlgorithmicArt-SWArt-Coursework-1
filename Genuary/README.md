@@ -19,7 +19,3 @@ To run the code:
 For more inspiration, check out:
 - [Elastic Tech Days YouTube channel](https://www.youtube.com/shorts/uglTZY484I8?si=zsd0j7TEZbuCxjYo)
 - [Genuary Art](https://genuary.art)
-
----
-
-You can update your README file with this text for a more professional presentation.
