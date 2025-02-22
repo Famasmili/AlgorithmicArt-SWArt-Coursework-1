@@ -1,0 +1,14 @@
+# Ignore all files in the Genuary directory
+Genuary/
+
+# Ignore specific files in the root directory
+Example1_VeraMolnar.html
+Example1_VeraMolnar.js
+Interactive-1.interactive.ipynb
+optical_illusion2.avif
+random_clocks.py
+turtle_ex1.py
+turtle_ex2.py
+turtle_ex3.py
+turtle_ex4.py
+turtle_ex5.py
