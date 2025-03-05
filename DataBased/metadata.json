@@ -1,0 +1,93 @@
+{
+  "Bleach": {
+    "title": "Bleach",
+    "data": {
+      "name": "Bleach",
+      "images": [
+        "Bleach\\image1.jpg",
+        "Bleach\\image2.jpg",
+        "Bleach\\image3.jpg",
+        "Bleach\\image4.jpg",
+        "Bleach\\image5.jpg",
+        "Bleach\\image6.jpg",
+        "Bleach\\image7.jpg"
+      ]
+    }
+  },
+  "Dragon_ball_z": {
+    "title": "Dragon Ball Z",
+    "data": {
+      "name": "Dragon Ball Z",
+      "images": [
+        "Dragon_ball_z\\image1.jpg",
+        "Dragon_ball_z\\image2.jpg",
+        "Dragon_ball_z\\image3.jpg",
+        "Dragon_ball_z\\image4.jpg",
+        "Dragon_ball_z\\image5.jpg",
+        "Dragon_ball_z\\image6.jpg",
+        "Dragon_ball_z\\image7.png"
+      ]
+    }
+  },
+  "HunterxHunter": {
+    "title": "Hunterxhunter",
+    "data": {
+      "name": "Hunterxhunter",
+      "images": [
+        "HunterxHunter\\image1.jpg",
+        "HunterxHunter\\image2.jpg",
+        "HunterxHunter\\image3.jpg",
+        "HunterxHunter\\image4.jpg",
+        "HunterxHunter\\image5.jpg",
+        "HunterxHunter\\image6.jpg"
+      ]
+    }
+  },
+  "Jujutsu_kaisen": {
+    "title": "Jujutsu Kaisen",
+    "data": {
+      "name": "Jujutsu Kaisen",
+      "images": [
+        "Jujutsu_kaisen\\image1.jpg",
+        "Jujutsu_kaisen\\image2.jpg",
+        "Jujutsu_kaisen\\image3.png",
+        "Jujutsu_kaisen\\image4.jpg",
+        "Jujutsu_kaisen\\image5.jpg",
+        "Jujutsu_kaisen\\image6.png",
+        "Jujutsu_kaisen\\image7.png"
+      ]
+    }
+  },
+  "Naruto": {
+    "title": "Naruto",
+    "data": {
+      "name": "Naruto",
+      "images": [
+        "Naruto\\image1.jpg",
+        "Naruto\\image2.jpg",
+        "Naruto\\image3.jpg",
+        "Naruto\\image4.jpg",
+        "Naruto\\image5.jpg",
+        "Naruto\\image6.jpg",
+        "Naruto\\image7.jpg",
+        "Naruto\\image8.jpg"
+      ]
+    }
+  },
+  "One_piece": {
+    "title": "One Piece",
+    "data": {
+      "name": "One Piece",
+      "images": [
+        "One_piece\\image1.jpg",
+        "One_piece\\image2.jpg",
+        "One_piece\\image3.jpg",
+        "One_piece\\image4.jpg",
+        "One_piece\\image5.jpg",
+        "One_piece\\image6.jpg",
+        "One_piece\\image7.jpg",
+        "One_piece\\image8.jpg"
+      ]
+    }
+  }
+}
